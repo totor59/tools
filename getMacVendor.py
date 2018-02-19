@@ -6,13 +6,12 @@ from urllib.parse import quote
 import click
 import sys
 
+
 def header():
     title = "getMacVendor"
     author = "t0t0r"
     click.secho("¦̵̱ ̵̱ ̵̱ ̵̱ ̵̱(̥̥ ͇̅└͇̅┘͇̅ (≡8כ−◦ "+title+" by "+author, bold=True, fg='magenta')
     print("")
-
-
 
 def get_mac_vendor(mac_addr):
     url = "http://api.macvendors.com/"+quote(mac_addr)
@@ -32,6 +31,8 @@ if __name__ == "__main__":
     try:
         mac_addr = sys.argv[1]
     except IndexError:
+        """ print help """
+        print("Simple wrapper for macvendors.com API")
         print("Usage: MACvendor.py <mac_addr>")
         print("Ex: python MACvendor.py 00:00:00:00:00:00")
         sys.exit(1)
